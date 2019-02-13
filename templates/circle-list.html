@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    {#    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>#}
+    {#    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">#}
+</head>
+<body>
+<header class="page-header">
+    {#    ヘッダーとして分離したい#}
+    <h1><a href="{% url 'sokubaikai:list' %}">sokubaikai-list</a></h1>
+</header>
+<div class="content container">
+    {#    Bulmaで即売会のリスト#}
+    <table class="table">
+        <thead>
+        <tr>
+            <th><abbr title="Position">即売会ID</abbr></th>
+            <th>即売会名</th>
+            <th><abbr title="Played">即売会開催回数</abbr></th>
+            <th><abbr title="Won">即売会会場</abbr></th>
+            <th><abbr title="Drawn">即売会開催日</abbr></th>
+            <th><abbr title="Lost">開始時間</abbr></th>
+            <th><abbr title="Goals for">メモ</abbr></th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th><abbr title="Position">Pos</abbr></th>
+            <th>Team</th>
+            <th><abbr title="Played">Pld</abbr></th>
+            <th><abbr title="Won">W</abbr></th>
+            <th><abbr title="Drawn">D</abbr></th>
+            <th><abbr title="Lost">L</abbr></th>
+            <th><abbr title="Goals for">GF</abbr></th>
+        </tr>
+        </tfoot>
+        {#   繰り返し内容#}
+        <tbody>
+        {% for doujin_markets in object_list %}
+            <tr>
+                <th>{{ doujin_markets.id }}</th>
+                {#   以下で動的URL#}
+                <td><a href="{% url 'sokubaikai:detail' doujin_markets.id %}">{{ doujin_markets.market_name }}</a>
+                </td>
+                <td>{{ doujin_markets.market_version }}</td>
+                <td>{{ doujin_markets.market_place }}</td>
+                <td>{{ doujin_markets.market_date }}</td>
+                <td>{{ doujin_markets.market_start_time }}</td>
+                <td>{{ doujin_markets.market_memo }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# 後に画面固定フッターとして分離 #}
+    <a href="{% url 'sokubaikai:new' %}" class="button is-primary is-large">追加</a>
+
+    {#      {% block content %}#}
+    {#      {% endblock content %}#}
+</div>
+</body>
+</html>

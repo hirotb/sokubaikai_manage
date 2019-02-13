@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
+    {#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">#}
+    {#    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>#}
+    {#    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">#}
+</head>
+<body>
+<section class="section">
+    <header class="page-header">
+        <h1><a href="/">即売会アプリ</a></h1>
+    </header>
+
+    <a class="button is-medium is-fullwidth" href="{% url 'sokubaikai:list' %}">即売会一覧・検索</a>
+    <a class="button is-medium is-fullwidth" href="{% url 'sokubaikai:list' %}">サークル一覧・検索</a>
+    <a class="button is-medium is-fullwidth" href="{% url 'sokubaikai:list' %}">ユーザー設定</a>
+
+{#    <div class="container">#}
+
+
+{#        <aside class="menu">#}
+{#            <ul class="menu-list">#}
+{##}
+{#                <li><a class="button" href="{% url 'sokubaikai:list' %}">即売会一覧・検索</a></li>#}
+{##}
+{#                <li><a class="button" href="{% url 'sokubaikai:list' %}">サークル一覧・検索</a></li>#}
+{#                <li><a class="button" href="{% url 'sokubaikai:list' %}">ユーザー設定</a></li>#}
+{##}
+{#            </ul>#}
+
+            {#            <div class="columns is-multiline">#}
+            {#                <div class="column is-full">#}
+            {#                    <a class="button" href="{% url 'sokubaikai:list' %}">即売会一覧・検索</a>#}
+            {#                </div>#}
+            {#                <div class="column">#}
+            {#                    <a class="button" href="{% url 'sokubaikai:list' %}">サークル一覧・検索</a>#}
+            {#                </div>#}
+            {#                <div class="column">#}
+            {#                    <a class="button" href="{% url 'sokubaikai:list' %}">ユーザー設定</a>#}
+            {#                </div>#}
+            {#            </div>#}
+
+            {% comment %}        <p class="menu-label">
+            Administration
+        </p>{% endcomment %}
+
+{#        </aside>#}
+        {#      {% block content %}#}
+        {#      {% endblock content %}#}
+{#    </div>#}
+</section>
+</body>
+</html>
