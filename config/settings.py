@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# 認証に使うmodelクラスを指定 独自クラスなら'app名.class名'と指定
+AUTH_USER_MODEL = 'sokubaikai.User'
 # Application definition
 
 INSTALLED_APPS = [
